@@ -1,0 +1,54 @@
+name: 'Brampton grant recipient patterns and relationship evidence'
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/observatory/grant_relationships.py'
+      - 'tests/test_grant_relationships.py'
+      - 'config/grant_project_purposes.csv'
+      - 'config/grant_relationship_evidence.csv'
+      - '.github/workflows/grant-recipient-relationships.yml'
+permissions:
+  contents: read
+jobs:
+  grant-patterns:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'pdfplumber==0.11.7'
+      - name: Check relationship and data-integrity tests
+        run: python -m unittest discover -s tests -v
+      - name: Refresh three official annual recipient lists
+        run: python -m src.observatory.grant_research --live --out local_results/grants > /tmp/grant-collector.log
+      - name: Generate multi-year recipient evidence dossiers
+        run: |
+          python -m src.observatory.grant_relationships             --awards local_results/grants/grants_approved.json             --out local_results/recipient_relationships
+      - name: Publish counts without unsupported relationship allegations
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("local_results/recipient_relationships")
+          s=json.loads((p/"summary.json").read_text())
+          for k in ("published_award_entries","repeat_name_groups","three_year_name_groups",
+                    "groups_with_priority_area_change","groups_with_stream_change",
+                    "specific_project_purpose_records_reviewed",
+                    "cross_recipient_relationships_documented","fraud_findings"):
+              print(k,s[k])
+          for r in json.loads((p/"cross_year_recipient_histories.json").read_text())[:10]:
+              print("REPEAT_NAME",r["name_as_published"],r["years"],r["published_approved_total_cad"],
+                    "area_change",r["area_changed"],"stream_change",r["stream_changed"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: grant-patterns-and-documented-relationships
+          path: |
+            local_results/recipient_relationships/
+            local_results/grants/status.json
+          retention-days: 7
+          if-no-files-found: warn
