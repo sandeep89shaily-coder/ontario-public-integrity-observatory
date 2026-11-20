@@ -1,0 +1,47 @@
+{
+  "as_of": "2026-11-20",
+  "provider": "Skilled Trades College of Canada Inc.",
+  "client": "Aspire for Higher / A4H Skills Lab",
+  "provider_status": "recognized private for-profit career college — 2024 program-specific registration not verified",
+  "relationship_status": "explicitly described by A4H and independently referenced in Vaughan economic-development profile, commercial agreement not obtained",
+  "office": {
+    "campus": "Vaughan",
+    "address": "290 Vaughan Valley Blvd, Woodbridge, ON L4H 3C3",
+    "source": "https://www.skilledtradescollege.ca/contact-us",
+    "aspire_cohort_confirmed": false
+  },
+  "current_retail_program_cost_cad": "14400",
+  "historical_contract_per_seat_cad": null,
+  "current_retail_price_is_historical_contract": false,
+  "price_source": "https://www.skilledtradescollege.ca/admissions",
+  "reported_2024": {
+    "scholarship_instruction_adults": 65,
+    "scholarship_instruction_total_hours": 31200,
+    "reporting_hours_per_participant": 480,
+    "reporting_basis_verified": false,
+    "ejeft_graduates": 52,
+    "ejeft_jobs_created": 34,
+    "ejeft_is_same_population_as_scholarship_adults_verified": false,
+    "report_source": "https://aspireforhigher.ca/wp-content/uploads/2025/11/2024-A4H-Impact-Report_final.pdf"
+  },
+  "current_schedule": {
+    "start": "08:30",
+    "end": "15:00",
+    "days_per_week": 5,
+    "weeks": 12,
+    "gross_scheduled_clock_hours_per_participant": 390,
+    "historical_schedule_same_as_2024_verified": false,
+    "program_academic_hours_definition_verified": false
+  },
+  "auditor_required_records": [
+    "2024–2025 signed service agreement and amendments",
+    "exact cohort-to-campus allocation",
+    "original per-seat invoices and proof of payment",
+    "source and receipt of tools",
+    "College grade/completion/attendance aggregate ledger",
+    "Ministry-approved KPI definitions and accepted outcomes"
+  ],
+  "findings_of_fraud": 0,
+  "private_participant_data_requested": false,
+  "contact_permission": "NONE"
+}
