@@ -26,3 +26,10 @@ class AspireDeepSourceIntegrityTests(unittest.TestCase):
   trust=next(r for r in self.rows if r["id"]=="SFL_TRUST_2025")
   self.assertEqual(trust["type"],"THIRD_PARTY_INDEPENDENTLY_AUDITED_LIABILITY")
   self.assertFalse(trust["adverse_finding"])
+
+ def test_public_accounts_federal_payments_not_duplicated_as_award_commitments(self):
+  items=[r for r in self.rows if r["type"]=="FEDERAL_PUBLIC_ACCOUNTS_AGGREGATE_PAYMENTS"]
+  self.assertEqual(len(items),2)
+  self.assertEqual(sum(int(r["amount_cad"]) for r in items),490618)
+  self.assertTrue(all("AGGREGATE_PAYMENTS" in r["type"] for r in items))
+  self.assertTrue(all(r["adverse_finding"] is False for r in items))

@@ -66,3 +66,17 @@ Aspire's own current [board page](https://aspireforhigher.ca/board-of-directors/
 7. If public information supports an actual discrepancy, prepare a specific right-of-reply question for **user approval**. **No email/contact/FOI request may be sent without express user approval.**
 
 Crosswalk of official source URLs, amounts, accounting basis and limitations: `config/grant_candidate_aspire_deep_evidence.json`.
+
+## Additional 2024–25 FEDERAL Public Accounts: actual reported fiscal payment entries
+
+The [Public Accounts of Canada, 2024–25, Volume III Section 6 PDF](https://www.tpsgc-pwgsc.gc.ca/recgen/cpc-pac/2025/pdf/2025-vol3-ds6-eng.pdf) identifies `Aspire for Higher Elite Basketball, Brampton, Ontario` in **two separate federal program categories**:
+
+| Source heading | Reported aggregate payments | Printed page |
+|---|---:|---:|
+| ESDC: contributions for training/work experience, community mobilization, and labour-market measures | **$349,280** | 65 |
+| FedDev Ontario: contributions under Regional Economic Growth through Innovation | **$141,338** | 298 |
+| **Total of these two federal category lines, fiscal 2024–25 ONLY** | **$490,618** | |
+
+The latter category may be related to an earlier FedDev agreement, but **agreement-to-payment linkage is not proven here**. The ESDC category is broad and may encompass multiple unique funding agreements. Do not add these published fiscal payments to $977,070, $2.8 million or other face-value commitments as if those were separate cash receipts. Do not conflate the $490,618 federal payments with the separate **$1,773,039 provincial public-accounts entry**, which is from another government and may cover a different set of programming.
+
+**Source constraint:** The official PDF text and parent section headings were extracted through web retrieval; the PDF screenshot service returned HTTP 502 for this large report, so this is documentary table-text verification, not a rendered-page visual review. The raw PDF or page image should be independently downloaded for archival verification before publishing an external investigative report.

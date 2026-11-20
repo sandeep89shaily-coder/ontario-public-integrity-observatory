@@ -173,5 +173,29 @@
     "source_url": "https://www.auditor.on.ca/en/content/specialreports/specialreports/en25/AR-PA_SDF-TS_en25.pdf",
     "evidence": "Report found systemic weakness in selection rationale and monitoring/outcome standardization. Does not identify A4H as an offender or establish its evaluation ranking.",
     "adverse_finding": false
+  },
+  {
+    "id": "FED_PUBLIC_ACCOUNTS_2024_25_ESDC_LABOUR_MARKET",
+    "type": "FEDERAL_PUBLIC_ACCOUNTS_AGGREGATE_PAYMENTS",
+    "name": "Aspire for Higher Elite Basketball",
+    "amount_cad": "349280",
+    "period": "Federal fiscal year 2024-2025",
+    "source_url": "https://www.tpsgc-pwgsc.gc.ca/recgen/cpc-pac/2025/pdf/2025-vol3-ds6-eng.pdf",
+    "source_section": "Employment and Social Development Canada: payments for training/work experience and labour market resource measures, PDF printed page 65",
+    "evidence": "Public Accounts of Canada Volume III, Section 6, recipient name-line $349,280 in the ESDC training/work experience contributions category. Program category is broad; contract numbers, invoices, and tranches are not specified. PDF screenshot endpoint unavailable, but parsed PDF table provides the recipient line and parent heading.",
+    "accounting_basis": "FISCAL_YEAR_AGGREGATE_PAYMENTS_DO_NOT_ADD_TO_AGREEMENT_FACE_VALUE",
+    "adverse_finding": false
+  },
+  {
+    "id": "FED_PUBLIC_ACCOUNTS_2024_25_FEDDEV_REGIONAL_GROWTH",
+    "type": "FEDERAL_PUBLIC_ACCOUNTS_AGGREGATE_PAYMENTS",
+    "name": "Aspire for Higher Elite Basketball",
+    "amount_cad": "141338",
+    "period": "Federal fiscal year 2024-2025",
+    "source_url": "https://www.tpsgc-pwgsc.gc.ca/recgen/cpc-pac/2025/pdf/2025-vol3-ds6-eng.pdf",
+    "source_section": "Federal Economic Development Agency for Southern Ontario: Regional Economic Growth through Innovation contributions, PDF printed page 298",
+    "evidence": "Public Accounts of Canada Volume III Section 6 reports recipient $141,338 under Regional Economic Growth through Innovation. Exact funding agreement and paid invoice records not reconciled. PDF screenshot endpoint unavailable, but parsed PDF table shows recipient and parent heading.",
+    "accounting_basis": "FISCAL_YEAR_AGGREGATE_PAYMENTS_DO_NOT_ADD_TO_AGREEMENT_FACE_VALUE",
+    "adverse_finding": false
   }
 ]
