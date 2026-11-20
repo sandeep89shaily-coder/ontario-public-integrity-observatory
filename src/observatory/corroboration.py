@@ -64,8 +64,10 @@ def validate_toronto_report(text):
 
 def check_mississauga_threshold(rows,policy_text,document_texts):
     results=[]
-    policy_present=all(term in policy_text for term in
-        ("SECTION 13","SECTION 27","Single Source","Information Reports"))
+    # Official PDFs use variable capitalization and line wrapping.
+    normalized_policy=normalize(policy_text).casefold()
+    policy_present=all(term in normalized_policy for term in
+        ("section 13","section 27","single source","information reports"))
     for row in rows:
         pid=row["procurement_id"];amt=row["reported_amount"]
         url=row["source_url"]

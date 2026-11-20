@@ -5,6 +5,13 @@ class CorroborationTests(unittest.TestCase):
     def test_no_false_reconciliation_if_no_source(self):
         self.assertEqual(validate_toronto_report("")["status"],
                          "HOLD_SOURCE_TEXT_MISSING_REQUIRED_VALUES")
+    def test_uppercase_official_policy_is_recognized(self):
+        rows=[{"procurement_id":"PRC005493","reported_amount":"$80,000.00",
+               "source_url":"https://www.mississauga.ca/example.pdf","source_page":1}]
+        policy="SECTION 13 - SINGLE SOURCE. SECTION 27 - INFORMATION REPORTS."
+        checked=check_mississauga_threshold(rows,policy,
+            {"https://www.mississauga.ca/example.pdf":"PRC005493 $80,000.00"})
+        self.assertTrue(checked[0]["published_by_law_context_verified"])
     def test_report_arithmetic_needs_source_text(self):
         tokens=("6051950 3,180,416 1,764,477 4,944,893 1,514,477 250,000 "
                 "4,382,645 2,618,168 2022 2025")
