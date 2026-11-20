@@ -195,6 +195,36 @@ def research_questions(category):
         ]
     return ["What primary documentary evidence would verify this decision and its chronology?"]
 
+def publication_rule_questions(noncompetitive, threshold="125000.00"):
+    """An exception to a displayed reporting threshold is a question, not a policy violation.
+
+    An acquisition may be included because of cumulative value, reporting methodology,
+    extensions or another lawful convention; no wrongdoing is inferred.
+    """
+    from decimal import Decimal, InvalidOperation
+    threshold_value=Decimal(threshold)
+    questions=[]
+    for record in noncompetitive:
+        displayed=str(record.get("award_amount_displayed") or "")
+        clean=displayed.replace("$","").replace(",","").strip()
+        try:
+            number=Decimal(clean)
+        except InvalidOperation:
+            continue
+        if number>=0 and number<threshold_value:
+            questions.append({
+                "municipality":"Mississauga",
+                "procurement_id":record.get("procurement_id"),
+                "reported_amount":displayed,
+                "stated_published_reporting_threshold":"$125,000 (noncompetitive)",
+                "source_url":record.get("source_url"),
+                "source_page":record.get("source_page"),
+                "status":"REPORTING_RULE_EXPLANATION_NEEDED_NOT_EVIDENCE_OF_WRONGDOING",
+                "question":"Why is this amount displayed in a publication whose index describes a $125,000+ non-competitive threshold? Check whether reporting uses contract ceilings, aggregate amounts, amendments, or another permitted basis.",
+                "limitations":"No assertion of procurement policy breach or improper award.",
+            })
+    return questions
+
 def neutral_queue(council,noncompetitive,grants):
     queue=[]
     for rec in council:
@@ -284,13 +314,15 @@ def run(out,*,fetch=get):
             audit.append({"source":url,"registry":name,"status":"FAILED",
                           "error_type":type(e).__name__,"detail":str(e)[:180]})
     queue,repeats=neutral_queue(council,purchases,grants)
+    rule_questions=publication_rule_questions(purchases)
     status={"observed_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
         "classification":"PUBLIC_SOURCE_REVIEW_ONLY_NOT_FRAUD_FINDINGS",
         "toronto_council_items":len(council),
         "mississauga_noncompetitive_entries":len(purchases),
         "brampton_grant_recipient_entries":len(grants),
         "cross_year_grant_name_matches":len(repeats),
-        "review_questions_generated":len(queue),
+        "review_questions_generated":len(queue)+len(rule_questions),
+        "publication_rule_reconciliation_questions":len(rule_questions),
         "actual_fraud_findings":0,
         "verified_legal_conflicts_of_interest":0,
         "verified_misuse_of_funds":0,
@@ -300,7 +332,8 @@ def run(out,*,fetch=get):
         ("source_status.json",status),("toronto_decision_excerpts.json",council),
         ("mississauga_noncompetitive.json",purchases),
         ("brampton_grants.json",grants),("cross_year_grant_name_matches.json",repeats),
-        ("research_question_queue.json",queue)):
+        ("research_question_queue.json",queue),
+        ("publication_threshold_review.json",rule_questions)):
         (out/name).write_text(json.dumps(obj,indent=2,ensure_ascii=False),encoding="utf-8")
     return status
 

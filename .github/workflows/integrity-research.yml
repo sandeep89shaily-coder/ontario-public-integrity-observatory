@@ -30,7 +30,7 @@ jobs:
           s=json.loads(Path("local_results/integrity/source_status.json").read_text())
           for k in ("toronto_council_items","mississauga_noncompetitive_entries",
                     "brampton_grant_recipient_entries","cross_year_grant_name_matches",
-                    "review_questions_generated","actual_fraud_findings"):
+                    "review_questions_generated","publication_rule_reconciliation_questions","actual_fraud_findings"):
               print(k,s[k])
           for a in s["audit"]:
               print("SOURCE",a["status"],a["source"],"rows",a.get("candidate_rows"),

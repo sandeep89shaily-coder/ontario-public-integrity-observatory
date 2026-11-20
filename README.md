@@ -35,3 +35,6 @@ python -m pip install "pdfplumber==0.11.7"
 python -m src.observatory.municipal_live --live --out local_results/pilot
 ```
 GitHub Actions also has a restricted one-shot source smoke workflow; outputs are short-retention artifacts, not public accusations.
+
+## Integrity investigations — priority revised November 20, 2026
+The first substantive investigations now follow **municipal procurement exceptions, contract amendments, grants, declared-interest records, and public-funds reconciliation**; historical contractor performance remains supporting context. A first bounded source run reviewed Toronto council decisions, Mississauga non-competitive purchasing reports, Brampton published 2025–26 grants, and public declared-interest registry entry points. The system produces neutral source-linked review questions, **not fraud findings**. See [live integrity pilot findings](docs/FIRST_INTEGRITY_PILOT_20261120.md).
