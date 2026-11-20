@@ -1,0 +1,4 @@
+municipality,source_kind,url,access_approved,live_verified,notes
+Toronto,procurement,https://www.toronto.ca/business-economy/doing-business-with-the-city/searching-bidding-on-city-contracts/toronto-bids-portal/,false,false,Review rights and collector validation first
+Mississauga,procurement,https://mississauga.bonfirehub.ca/portal/?tab=openOpportunities,false,false,Review portal access and archive coverage
+Brampton,procurement,https://www.brampton.ca/EN/Business/Bids-Tenders/Pages/Welcome.aspx,false,false,Review rights and historical award sources

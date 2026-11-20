@@ -1,0 +1,4 @@
+municipality,contract_id,vendor_name,award_date,award_amount_cad,source_url
+Example Town,EX-001,Synthetic Contractor Ltd,2024-01-15,100000,https://example.org/award1
+Example Town,EX-002,Synthetic Contractor Ltd,2025-04-01,150000,https://example.org/award2
+Another Example Town,EX-003,Illustrative Works Inc,2025-06-01,60000,https://example.org/award3
