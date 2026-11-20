@@ -26,6 +26,10 @@ class CorroborationTests(unittest.TestCase):
               {"https://www.mississauga.ca/test.pdf":"PRC005493 $80,000.00"})
         self.assertTrue(x[0]["published_pdf_amount_and_id_confirmed"])
         self.assertEqual(x[0]["determination"],"UNRESOLVED_ROUTINE_DISCLOSURE_REQUEST")
+    def test_cross_year_dates_cannot_imply_ineligibility(self):
+        data=summarize_grants([],[],"","")
+        assert "2026-03-01" in data["cross_year_review_chronology"]["2025_new_small_closeout_deadline"]
+        self.assertEqual(data["ineligible_grants_proven"],0)
     def test_2025_grant_aggregate_crosscheck(self):
         grants=[{"year":"2025","approved_amount_as_reported":"$1,750,000",
              "source_url":"https://www.brampton.ca/some.pdf"}]

@@ -111,6 +111,13 @@ def summarize_grants(grants,matches,news_text,guide_text):
            result["2025"]["award_entries"]==159 else "NOT_VERIFIED"),
          "2025_program_closeout_obligations_verified":policy_confirmed,
          "cross_year_name_matches_not_legal_identity":len(matches),
+         "cross_year_review_chronology":{
+           "2026_application_deadline":"2025-09-30",
+           "2026_applicant_notifications":"2026-01 (per program guidance)",
+           "2025_developing_amplifying_closeout_deadline":"2025-12-31 or earlier project-specific date",
+           "2025_new_small_closeout_deadline":"2026-03-01 or earlier project-specific date",
+           "limitation":"Some 2025 New/Small close-outs were not due when 2026 applications or notices occurred. Name recurrence cannot establish an eligibility breach."
+         },
          "ineligible_grants_proven":0,
          "status":"APPROVED_VALUES_NOT_PAYMENTS_OR_PERFORMANCE",
          "missing_documents":[
@@ -180,7 +187,7 @@ To: abf@brampton.ca
 Subject: 2025 Advance Brampton Fund program-wide closeout and payment reconciliation
 
 Please advise whether a public 2025 program closeout or outcomes report is available. If so, can it show, by grant stream, how many funded projects submitted approved close-out reports, how many required revisions, final amounts disbursed versus awarded, holdbacks not paid, and amounts recovered, if any?
-Could you also identify any existing administrative record or published method for verifying compliance with prior-year close-out obligations when assessing a 2026 application, including any documented exception process?
+Could you also identify how prior-year close-out obligations were assessed for 2026 applications and notifications, taking account of the 2026 application deadline of September 30, 2025, and the 2025 stream-specific close-out deadlines (some as late as March 1, 2026)? Please clarify the applicable record date, any conditional approvals and lawful exception process.
 We prefer anonymized program-level aggregates before considering specific redacted case records. We do not infer wrongdoing from repeat funding. Please flag whether these requests require MFIPPA processing and any costs.
 
 All enquiries are drafts; human review and sending approval remain required.
