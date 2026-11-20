@@ -1,5 +1,8 @@
 # Ontario Public Integrity Observatory
 
+> **Current investigative focus (Nov 20, 2026):** GRANTS ONLY — Brampton Advance Brampton Fund 2024–2026. Other procurement and contractor software remains preserved but is not in the active research workflow. [First source-version reconciliation](docs/GRANTS_CASE_001_2024_PUBLIC_LIST_REVISIONS.md).
+
+
 **Independent, nonprofit, AI-assisted investigations and investigative journalism about public accountability in Ontario.**
 
 ## Mission
