@@ -31,7 +31,7 @@ jobs:
           from pathlib import Path
           x=json.loads(Path("local_results/corroboration/audit_status.json").read_text())
           for k in ("mississauga_source_rows_confirmed","toronto_arithmetic_reconciled",
-                    "brampton_2025_award_rollup_confirmed",
+                    "brampton_2025_award_rollup_confirmed","brampton_arts_dashboard_scope_verified",
                     "verified_actual_payments_by_contract","verified_grant_project_closeouts",
                     "verified_fraud_findings"):
               print(k,x[k])

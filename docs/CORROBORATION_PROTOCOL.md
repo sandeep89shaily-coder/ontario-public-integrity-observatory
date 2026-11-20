@@ -30,3 +30,8 @@ All entries are research questions, not misconduct findings.
 - Obtain approval/exception case records and independent performance/close-out information.
 - Reconcile individual decisions to verified records; keep identified unknowns as open questions.
 - No AI model may promote unknowns to misconduct findings; human editorial and legal review required before adverse publication.
+
+## 2025 Brampton arts-grant measurement cross-check
+- The 2025 approved-recipient list's Arts and Culture category has 53 entries totalling $683,744.
+- [Brampton performance dashboard](https://performancedashboard.brampton.ca/culture-community-well-being/grant-funding-directed-to-arts-and-culture-programs/) describes 2025 as **2025 Estimate**, with $646,244, 51 community-led projects and a disbursement-based measure. This is *not necessarily the same population, financial basis or time period* as the 53 approved grants. The nominal difference is $37,500, but it must **not** be characterized as missing or misused funds.
+- Ask City for bridge schedule identifying grant stream, approved vs disbursed amounts, paid holdbacks, returns/cancellations and dashboard as-of date, preferably in aggregate.

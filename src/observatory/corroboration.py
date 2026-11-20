@@ -17,6 +17,7 @@ TORONTO_REPORT = "https://www.toronto.ca/legdocs/mmis/2026/gg/bgrd/backgroundfil
 TORONTO_DECISION = "https://secure.toronto.ca/council/agenda-item.do?item=2026.GG28.2"
 BRAMPTON_2025_GUIDE = "https://www.brampton.ca/EN/City-Hall/grants/Documents/2025%20Advance%20Brampton%20Fund/2025%20Advance%20Brampton%20Fund%20Guidelines%20V1.0.pdf"
 BRAMPTON_2025_NEWS = "https://www.brampton.ca/EN/City-Hall/News/Pages/News-Release.aspx/1483"
+BRAMPTON_ARTS_DASHBOARD = "https://performancedashboard.brampton.ca/culture-community-well-being/grant-funding-directed-to-arts-and-culture-programs/"
 MAX_PDF = 17_000_000
 MAX_HTML = 800_000
 REQUIRED = ("brampton_grants.json", "mississauga_noncompetitive.json", "toronto_decision_excerpts.json", "publication_threshold_review.json")
@@ -32,7 +33,7 @@ def source_text_pdf(raw):
 def fetch_verified_source(url,fetch=get):
     from urllib.parse import urlsplit
     host=urlsplit(url).hostname
-    if host not in ("www.mississauga.ca","www.toronto.ca","www.brampton.ca","secure.toronto.ca"):
+    if host not in ("www.mississauga.ca","www.toronto.ca","www.brampton.ca","secure.toronto.ca","performancedashboard.brampton.ca"):
         raise ValueError("Unapproved source host")
     is_pdf=url.lower().split("?")[0].endswith(".pdf")
     raw=fetch(url,MAX_PDF if is_pdf else MAX_HTML,expected_host=host,
@@ -118,6 +119,39 @@ def summarize_grants(grants,matches,news_text,guide_text):
             "Annual grant outcomes / expenditures and any public aggregate impact report",
          ]}
 
+def compare_brampton_arts_dashboard(grants,dashboard_text):
+    """Different populations: award approvals vs dashboard estimated disbursements.
+
+    This comparison must NOT be represented as unspent money or a fraud discrepancy.
+    """
+    rows=[r for r in grants if r.get("year")=="2025" and
+          r.get("program_area_as_reported")=="Arts and Culture"]
+    approved=sum((Decimal(r["approved_amount_as_reported"].replace("$","").replace(",",""))
+                    for r in rows),Decimal("0"))
+    dashboard_confirmed=all(s in dashboard_text for s in
+        ("646,244","2025 Estimate","51 community-led projects"))
+    base={
+        "2025_recipient_list_arts_entries":len(rows),
+        "2025_approved_arts_list_total_cad":str(approved),
+        "dashboard_url":BRAMPTON_ARTS_DASHBOARD,
+        "2025_dashboard_population_and_scope_verified":dashboard_confirmed,
+        "comparison_status":"NOT_LIKE_FOR_LIKE_ESTIMATE_DISBURSEMENT_VS_APPROVALS",
+        "actual_grant_level_payments_verified":False,
+        "questions":[
+          "Does the dashboard's 51-project count refer to the same population as the 53 approved Arts and Culture recipient entries?",
+          "Does the dashboard's funding definition include a separate Creative Space Improvement stream or exclude any approved projects?",
+          "Which awards were actually disbursed, withheld, cancelled, carried forward or still subject to reporting at the dashboard cut-off?",
+          "Was the 2025 dashboard estimate subsequently revised, and what is the final reconciled program statement?"
+        ],
+        "no_misuse_inferred":True,
+    }
+    if dashboard_confirmed:
+        base.update({"dashboard_2025_estimated_disbursed_cad":"646244",
+                     "dashboard_2025_reported_project_count":51,
+                     "nominal_difference_approved_vs_estimate_cad":str(approved-Decimal("646244")),
+                     "difference_is_not_verified_unpaid_funds":True})
+    return base
+
 def request_drafts(thresholds,toronto,grants):
     ids=", ".join(r["procurement_id"] for r in thresholds)
     return f"""# Draft routine-disclosure enquiries — NOT SENT
@@ -160,7 +194,7 @@ def run(source_dir,out,*,fetch=get):
     thresholds=data["publication_threshold_review.json"]
     urls=list(dict.fromkeys([r["source_url"] for r in thresholds]))
     source_urls=[MISS_BYLAW,MISS_INDEX,TORONTO_REPORT,TORONTO_DECISION,
-                 BRAMPTON_2025_GUIDE,BRAMPTON_2025_NEWS]+urls
+                 BRAMPTON_2025_GUIDE,BRAMPTON_2025_NEWS,BRAMPTON_ARTS_DASHBOARD]+urls
     captures={};audit=[]
     for url in source_urls:
         try:
@@ -181,6 +215,8 @@ def run(source_dir,out,*,fetch=get):
     brampton=summarize_grants(data["brampton_grants.json"],
               data["cross_year_grant_name_matches.json"],
               captures.get(BRAMPTON_2025_NEWS,""),captures.get(BRAMPTON_2025_GUIDE,""))
+    arts_comparison=compare_brampton_arts_dashboard(
+         data["brampton_grants.json"],captures.get(BRAMPTON_ARTS_DASHBOARD,""))
     brampton["guideline_source_url"]=BRAMPTON_2025_GUIDE
     brampton["official_announcement_url"]=BRAMPTON_2025_NEWS
     result={"run_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -188,13 +224,15 @@ def run(source_dir,out,*,fetch=get):
         "mississauga_source_rows_confirmed":sum(r["published_pdf_amount_and_id_confirmed"] for r in miss),
         "toronto_arithmetic_reconciled":toronto["status"]=="PUBLISHED_AMOUNTS_RECONCILED_NOT_ACTUAL_PAYMENTS",
         "brampton_2025_award_rollup_confirmed":brampton["year_2025_official_announcement_cross_check"]=="EXACT_AGGREGATE_MATCH",
+        "brampton_arts_dashboard_scope_verified":arts_comparison["2025_dashboard_population_and_scope_verified"],
         "verified_actual_payments_by_contract":0,
         "verified_grant_project_closeouts":0,
         "verified_fraud_findings":0,
         "source_audit":audit,
         "caveat":"Official reported awards, approvals and public aggregate totals are not proof of disbursement, effective procurement controls or wrongdoing."}
     for name,obj in (("audit_status.json",result),("mississauga_control_review.json",miss),
-         ("toronto_wsp_reconciliation.json",toronto),("brampton_grant_reconciliation.json",brampton)):
+         ("toronto_wsp_reconciliation.json",toronto),("brampton_grant_reconciliation.json",brampton),
+         ("brampton_arts_dashboard_scope_review.json",arts_comparison)):
         (out/name).write_text(json.dumps(obj,indent=2,ensure_ascii=False),encoding="utf-8")
     (out/"RECORD_REQUESTS_DRAFT_NOT_SENT.md").write_text(
          request_drafts(miss,toronto,brampton),encoding="utf-8")
