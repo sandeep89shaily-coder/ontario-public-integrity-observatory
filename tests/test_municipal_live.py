@@ -9,3 +9,8 @@ class LivePilotOfflineTests(unittest.TestCase):
         parser=TextCollector()
         parser.feed("<html><body><p>Bid Status: Awarded</p></body></html>")
         self.assertIn("Awarded", " ".join(parser.parts))
+    def test_scripts_are_not_presented_as_tender_evidence(self):
+        parser=TextCollector()
+        parser.feed("<script>Ext.net.ResourceMgr.init({});</script><p>Bid Number: T2026-161</p>")
+        self.assertNotIn("Ext.net", " ".join(parser.parts))
+        self.assertIn("T2026-161", " ".join(parser.parts))

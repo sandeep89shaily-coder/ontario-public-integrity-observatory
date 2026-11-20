@@ -9,7 +9,7 @@ Advance investigative journalism and public accountability by examining municipa
 Pilot: **Mississauga, Toronto, Brampton**. Start with existing GTA Commercial Radar collectors, but keep source code, private working data, and operations separate. Focus on repeat contract winners and how earlier contracts performed before later awards.
 
 ## Status
-Repository scaffold only. **No live collection, complete contract-award inventory, or AI investigation is claimed.** All sample data are synthetic. No confidential investigations belong in public commits.
+First live bounded three-city source smoke executed on November 20, 2026: 25 Toronto solicitations with 31 raw supplier mentions (including one obvious test record quarantined in the subsequent code revision), 14 Mississauga City-report vendor entries, and 3 Brampton public tender pages. These remain unreviewed source observations, **not a complete contract-award inventory or AI investigation**. Synthetic test fixtures are clearly separate. See [the live checkpoint](docs/FIRST_LIVE_CHECKPOINT_20261120.md). No confidential investigations belong in public commits.
 
 ## First milestones
 1. Audit and license-check Radar modules for read-only reuse; maintain source provenance.
@@ -27,3 +27,11 @@ python -m src.observatory.cli --input tests/fixtures/awards_example.csv
 ```
 
 See `docs/ARCHITECTURE.md` and `docs/EDITORIAL_POLICY.md`. All scheduled collection is disabled until source access and publication rights are checked.
+
+## Bounded live source test
+Run after confirming source terms:
+```bash
+python -m pip install "pdfplumber==0.11.7"
+python -m src.observatory.municipal_live --live --out local_results/pilot
+```
+GitHub Actions also has a restricted one-shot source smoke workflow; outputs are short-retention artifacts, not public accusations.

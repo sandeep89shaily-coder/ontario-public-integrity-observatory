@@ -59,6 +59,16 @@ class TorontoTests(unittest.TestCase):
             self.assertEqual(result["page_audit"][0]["status"], "FAILED")
             self.assertEqual(result["supplier_award_mentions"], 0)
 
+    def test_city_test_record_is_held(self):
+        payload={"value":[{"Solicitation_Document_Number":"1111111111",
+                            "Posting_Title":"DELETE - Testing 99",
+                            "Status":"Awarded",
+                            "Awarded_Suppliers":[{"Successful_Bidder":"Successful Bidde"}]}]}
+        records, awards, holds = extract(payload, endpoint(0, 1), "2026-11-20")
+        self.assertFalse(records)
+        self.assertFalse(awards)
+        self.assertEqual(holds[0]["reason"], "SOURCE_TEST_RECORD_NOT_AN_AWARD")
+
     def test_invalid_schema_fails(self):
         with self.assertRaises(ValueError):
             extract({"notvalue": []}, endpoint(0, 1), "2026-11-20")

@@ -114,7 +114,16 @@ class TextCollector(HTMLParser):
     def __init__(self):
         super().__init__()
         self.parts = []
+        self._suppressed = 0
+    def handle_starttag(self, tag, attrs):
+        if tag in ("script", "style", "noscript"):
+            self._suppressed += 1
+    def handle_endtag(self, tag):
+        if tag in ("script", "style", "noscript") and self._suppressed:
+            self._suppressed -= 1
     def handle_data(self, text):
+        if self._suppressed:
+            return
         value = " ".join(text.split())
         if value: self.parts.append(value)
 

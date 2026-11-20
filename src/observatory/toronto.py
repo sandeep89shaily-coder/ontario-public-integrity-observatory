@@ -91,6 +91,13 @@ def extract(page: dict, page_url: str, observed: str):
         if not re.fullmatch(r"\d{8,12}", doc_id):
             holds.append({"row": index, "reason": "INVALID_SOLICITATION_ID"})
             continue
+        title = _text(raw.get("Posting_Title"), 400)
+        # A real November 2026 official sample contained a City test entry;
+        # preserve its source record as a hold, never count it as an award.
+        if doc_id == "1111111111" and title.casefold().startswith("delete - testing"):
+            holds.append({"row": index, "solicitation_id": doc_id,
+                          "reason": "SOURCE_TEST_RECORD_NOT_AN_AWARD"})
+            continue
         status = _text(raw.get("Status"), 100)
         record = {
             "solicitation_id": doc_id, "raw_status": status,
