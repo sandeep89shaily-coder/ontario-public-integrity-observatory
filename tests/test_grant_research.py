@@ -1,6 +1,6 @@
 import tempfile,unittest
 from pathlib import Path
-from src.observatory.grant_research import stream_label,key_for,parse_money,analyze,run
+from src.observatory.grant_research import stream_label,key_for,parse_money,analyze,run,compare_archived_2024
 class GrantsTests(unittest.TestCase):
  def test_streams_not_inferred_from_amount(self):
   self.assertEqual(stream_label("2025 Advance Brampton Fund Developing Projects Approved Applicants"),"Developing")
@@ -23,3 +23,15 @@ class GrantsTests(unittest.TestCase):
    r=run(Path(d),fetch=fail)
    self.assertEqual(r["years_parsed"],0)
    self.assertTrue(all(x["status"]=="FAILED" for x in r["source_checks"]))
+
+class VersionTests(unittest.TestCase):
+ def test_revision_diff_does_not_assume_spending(self):
+  def item(name):
+   return {"organization_as_published":name,"program_area":"Arts and Culture",
+           "grant_stream":"New and Small","approved_amount_cad":"5000","source_page":2}
+  audit=compare_archived_2024([item("Early Applicant")],[item("Later Applicant")])
+  self.assertEqual(audit["old_entries"],1)
+  self.assertEqual(audit["revised_entries"],1)
+  self.assertEqual(len(audit["old_document_only"]),1)
+  self.assertEqual(len(audit["revised_document_only"]),1)
+  self.assertIn("NOT_PAYMENT",audit["status"])

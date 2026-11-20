@@ -15,3 +15,7 @@
 Grant-only source ledger, totals by grant stream, neutral cross-year exact name matches, hold/error file, and a draft *unsent* routine disclosure enquiry focused on aggregate payments, closeouts and evaluator scoring. No corruption labels, no unverified human relationship graphs, no automatic adverse publication.
 
 **Next acceptance:** Check totals against City's published releases; verify stream classification by source page; obtain payment/closeout/approval records. Only thereafter draft a human-reviewed, attributable investigation.
+
+## 2024 grant recipient list revision reconciliation
+
+The City's [March 7, 2024 announcement](https://www.brampton.ca/EN/City-Hall/News/Pages/News-Release.aspx/1347) states 117 funded organizations, while the [currently linked revised 2024 applicant list](https://www.brampton.ca/EN/City-Hall/grants/Documents/2024%20Approved%20ABF%20Applicants%20%28For%20Web%29%20V.2.pdf) has 116 published entries. An [older City-hosted list](https://www.brampton.ca/EN/City-Hall/grants/Documents/2024%20Approved%20ABF%20Applicants%20%28For%20Web%29.pdf) also exists. The automated version-difference audit captures both source hashes, exact row differences and extraction holds. A difference may result from an award amendment or withdrawal, recipient-list revisions, editorial/formatting errors, or different counting conventions; none is presumed improper. An updated award list is not proof of paid grants.

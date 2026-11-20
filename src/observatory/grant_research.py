@@ -10,6 +10,8 @@ SOURCES={
  "2025":"https://www.brampton.ca/EN/City-Hall/grants/Documents/2025%20Advance%20Brampton%20Fund/2025%20Advance%20Brampton%20Fund%20Approved%20Applicants%20%28For%20Web%20V.%201%29.pdf",
  "2026":"https://www.brampton.ca/EN/City-Hall/grants/Documents/2026%20Advance%20Brampton%20Fund/2026-Advance-Brampton-Fund-Approved-Recipients.pdf",
 }
+ARCHIVED_2024_URL = "https://www.brampton.ca/EN/City-Hall/grants/Documents/2024%20Approved%20ABF%20Applicants%20%28For%20Web%29.pdf"
+PRESS_RELEASE_2024 = "https://www.brampton.ca/EN/City-Hall/News/Pages/News-Release.aspx/1347"
 HEADINGS=re.compile(r"(New\s+and\s+Small|Developing|Amplifying)\s+(?:Projects?\s+)?(?:Approved\s+Applicants|Recipients)",re.I)
 AREAS={"Arts and Culture","Community Safety","Recreation"}
 MONEY=re.compile(r"^\s*\$\s*\d[\d,]*(?:\.\d{1,2})?\s*$")
@@ -102,6 +104,28 @@ def analyze(records):
                for (y,k),rows in sorted(same.items()) if len(rows)>1]
     return summaries,continuities,same_year
 
+def compare_archived_2024(archived,current):
+    """Compare public list versions, not funding payments or eligibility.
+    PDF extraction must be manually checked if differences are unexpected."""
+    def identity(r):
+        return (key_for(r["organization_as_published"]),r["program_area"],
+                r["grant_stream"],r["approved_amount_cad"])
+    older={identity(r):r for r in archived}
+    newer={identity(r):r for r in current}
+    return {
+      "old_entries":len(archived),"revised_entries":len(current),
+      "old_document_only":[{"name_as_published":older[k]["organization_as_published"],
+          "approved_amount":older[k]["approved_amount_cad"],
+          "source_page":older[k]["source_page"]} for k in sorted(older.keys()-newer.keys())],
+      "revised_document_only":[{"name_as_published":newer[k]["organization_as_published"],
+          "approved_amount":newer[k]["approved_amount_cad"],
+          "source_page":newer[k]["source_page"]} for k in sorted(newer.keys()-older.keys())],
+      "press_release_claimed_2024_organizations":117,
+      "press_release_source":PRESS_RELEASE_2024,
+      "status":"DOCUMENT_VERSION_COMPARISON_NOT_PAYMENT_FINDING",
+      "limitations":"Differences can be spelling, PDF extraction, amendment, cancellation, replacement or publication choice. A count of organizations is not automatically a count of award-list entries."
+    }
+
 def run(out,fetch=None):
     if fetch is None:
         from .municipal_live import get
@@ -120,18 +144,35 @@ def run(out,fetch=None):
         except Exception as exc:
             checks.append({"year":year,"status":"FAILED","type":type(exc).__name__,
                            "detail":str(exc)[:180],"url":url})
+    revision={"status":"NOT_CHECKED"}
+    try:
+        raw_old=fetch(ARCHIVED_2024_URL,4_000_000,expected_host="www.brampton.ca",expected_type="pdf")
+        if not raw_old.startswith(b"%PDF-"):raise ValueError("Invalid archived PDF signature")
+        older,older_holds,older_pages=parse_pdf(raw_old,"2024",ARCHIVED_2024_URL)
+        revision=compare_archived_2024(older,[r for r in records if r["year"]=="2024"])
+        revision["archived_url"]=ARCHIVED_2024_URL
+        revision["revised_url"]=SOURCES["2024"]
+        revision["archived_sha256"]=hashlib.sha256(raw_old).hexdigest()
+        revision["archived_held_rows"]=len(older_holds)
+        revision["archived_page_checks"]=older_pages
+    except Exception as exc:
+        revision={"status":"ARCHIVED_SOURCE_FETCH_FAILED_NOT_ZERO_DIFFERENCES",
+                  "error_type":type(exc).__name__,"detail":str(exc)[:180],
+                  "source_url":ARCHIVED_2024_URL}
     summaries,continuities,multi=analyze(records)
     result={"date_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
       "scope":"Brampton Advance Brampton Fund only — 2024 through 2026",
       "source_checks":checks,"years_parsed":sum(x["status"]=="PDF_PARSED" for x in checks),
       "approved_entries":len(records),"repeat_name_candidates":len(continuities),
-      "same_year_multiple_entries":len(multi),"confirmed_grant_noncompliance":0,
+      "same_year_multiple_entries":len(multi),"archived_2024_comparison_status":revision["status"],
+      "confirmed_grant_noncompliance":0,
       "confirmed_fraud":0,"status":"APPROVED_AWARDS_SOURCE_RESEARCH_NOT_FINDINGS",
       "unknown":["actual payment tranches","eligibility score sheets",
                  "signed grant agreements","accepted close-out reports","project outcomes"]}
     for name,obj in (("status.json",result),("grants_approved.json",records),
         ("held_pdf_rows.json",holds),("year_summary.json",summaries),
-        ("cross_year_continuity.json",continuities),("same_year_entries.json",multi)):
+        ("cross_year_continuity.json",continuities),("same_year_entries.json",multi),
+        ("archived_2024_version_comparison.json",revision)):
         (out/name).write_text(json.dumps(obj,indent=2),encoding="utf-8")
     (out/"RECORDS_REQUEST_DRAFT_NOT_SENT.md").write_text(
       "# Draft — Brampton Advance Brampton Fund records enquiry (NOT SENT)\n\n"
