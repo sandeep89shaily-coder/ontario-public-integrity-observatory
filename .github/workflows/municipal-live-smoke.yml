@@ -1,0 +1,43 @@
+name: Limited official-source smoke (research only)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/observatory/municipal_live.py"
+      - "src/observatory/toronto.py"
+      - ".github/workflows/municipal-live-smoke.yml"
+permissions:
+  contents: read
+jobs:
+  official-source-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install "pdfplumber==0.11.7"
+      - name: Collect a bounded source sample without publishing accusations
+        run: python -m src.observatory.municipal_live --live --out local_results/pilot > live-run.log
+      - name: Show source-health summary (not contractor accusations)
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open("local_results/pilot/LIVE_INTAKE_STATUS.json"))
+          for k in ("toronto_fetch_status","toronto_supplier_mentions",
+                    "mississauga_report_candidates","brampton_pages_retrieved",
+                    "historical_contract_performance_verified"):
+              print(f"{k}={d[k]}")
+          for r in d["mississauga_reports"]:
+              print("Mississauga",r["report"],r["status"],"candidates",r.get("candidates"),"reason",r.get("reason"))
+          for r in d["brampton_sources"]:
+              print("Brampton",r["bid_id"],r["status"],r.get("reason",""))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: municipal-source-status
+          path: local_results/pilot/
+          retention-days: 7
+          if-no-files-found: warn
