@@ -1,5 +1,8 @@
 # Ontario Public Integrity Observatory
 
+> **Current grant-only investigation:** Brampton Advance Brampton Fund recipient continuity, project purpose, and documented relationships (2024–2026). [Open current casebook](docs/GRANTS_RECIPIENT_CASEBOOK_20261120.md). Source-linked continuity is a research queue, **not** an allegation. No external correspondence without explicit user approval.
+
+
 > **Current investigative focus (Nov 20, 2026):** GRANTS ONLY — Brampton Advance Brampton Fund 2024–2026. Other procurement and contractor software remains preserved but is not in the active research workflow. [First source-version reconciliation](docs/GRANTS_CASE_001_2024_PUBLIC_LIST_REVISIONS.md).
 
 
