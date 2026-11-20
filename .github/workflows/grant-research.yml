@@ -1,0 +1,47 @@
+name: 'Grant-only Brampton Advance Brampton Fund research'
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/observatory/grant_research.py'
+      - 'tests/test_grant_research.py'
+      - '.github/workflows/grant-research.yml'
+permissions:
+  contents: read
+jobs:
+  grant-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'pdfplumber==0.11.7'
+      - run: python -m unittest discover -s tests -v
+      - name: Read official three-year grant recipients
+        run: python -m src.observatory.grant_research --live --out local_results/grants > grant-research.log
+      - name: Display exact source counts and failures
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('local_results/grants')
+          s=json.loads((p/'status.json').read_text())
+          print("years_parsed",s["years_parsed"])
+          print("approved_entries",s["approved_entries"])
+          print("repeat_name_candidates",s["repeat_name_candidates"])
+          print("confirmed_fraud",s["confirmed_fraud"])
+          for x in s["source_checks"]:
+              print("YEAR",x["year"],x["status"],"rows",x.get("awards_extracted"),
+                    "unknown_stream",x.get("unknown_stream"),"error",x.get("type"))
+          for year,x in json.loads((p/'year_summary.json').read_text()).items():
+              print("YEAR_SUMMARY",year,x["approved_entries"],x["approved_sum_cad"],x["stream_breakdown"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: brampton-grant-evidence-research
+          path: local_results/grants/
+          retention-days: 7
+          if-no-files-found: warn
