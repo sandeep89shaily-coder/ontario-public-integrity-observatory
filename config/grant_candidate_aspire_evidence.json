@@ -1,0 +1,149 @@
+{
+  "case_id": "GRANT-A4H-002",
+  "as_of_date": "2026-11-20",
+  "subject_name": "Aspire for Higher (A4H)",
+  "case_status": "PUBLIC_RECORD_CORROBORATION_OPEN_NO_ADVERSE_FINDING",
+  "legal_identity": {
+    "federal_legal_recipient": "ASPIRE FOR HIGHER ELITE BASKETBALL",
+    "federal_business_number": "817694599",
+    "operating_name_note": "Changing operating name to Aspire for Higher (official federal amendment, 2022)",
+    "source_url": "https://search.open.canada.ca/grants/record/feddevontario%2C062-2022-2023-Q2-00175%2Ccurrent",
+    "local_award_named_entities_reconciled_to_federal_number": false
+  },
+  "municipal_awards": [
+    {
+      "year": 2024,
+      "printed_name": "Aspire for Higher Elite Basketball",
+      "approved_cad": 12500,
+      "source_url": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2024%20Approved%20ABF%20Applicants%20%28For%20Web%29%20V.2.pdf",
+      "field_definition": "CITY_PUBLISHED_APPROVAL_NOT_PAID"
+    },
+    {
+      "year": 2025,
+      "printed_name": "Aspire for Higher Sports",
+      "approved_cad": 8750,
+      "source_url": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2025%20Advance%20Brampton%20Fund/2025%20Advance%20Brampton%20Fund%20Approved%20Applicants%20%28For%20Web%20V.%201%29.pdf",
+      "field_definition": "CITY_PUBLISHED_APPROVAL_NOT_PAID"
+    },
+    {
+      "year": 2026,
+      "printed_name": "Aspire for Higher",
+      "approved_cad": 20000,
+      "source_url": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2026%20Advance%20Brampton%20Fund/2026-Advance-Brampton-Fund-Approved-Recipients.pdf",
+      "field_definition": "CITY_PUBLISHED_APPROVAL_NOT_PAID"
+    }
+  ],
+  "municipal_sum_cad_if_same_entity": 41250,
+  "other_public_funding": [
+    {
+      "award_date": "2021-09-02",
+      "period": "2021-09-02 through 2024-12-31",
+      "funder": "FedDev Ontario",
+      "agreement_id": "1000102",
+      "amount_cad": 977070,
+      "purpose": "Launch Black Health Professionals Network (BHPN), bilingual networking and business advisory services, mentorship and web directory",
+      "accounting_basis": "FEDERAL_CONTRIBUTION_AGREEMENT_FACE_VALUE_NOT_PAYMENT_TOTAL",
+      "source_url": "https://search.open.canada.ca/grants/record/feddevontario%2C062-2021-2022-Q2-00108%2Ccurrent"
+    },
+    {
+      "award_date": "2026-04-01",
+      "period": "2026-04-01 through 2029-12-31",
+      "funder": "FedDev Ontario",
+      "agreement_id": "1019626",
+      "amount_cad": 2800000,
+      "purpose": "Black healthcare entrepreneurship business-training, advisory services, digital adoption and incubator programming",
+      "accounting_basis": "FEDERAL_CONTRIBUTION_AGREEMENT_FACE_VALUE_NOT_PAYMENT_TOTAL",
+      "source_url": "https://www.canada.ca/en/economic-development-southern-ontario/news/2026/08/nine-organizations-receive-support-to-strengthen-opportunities-for-black-led-businesses-and-entrepreneurs-across-southern-ontario.html"
+    },
+    {
+      "period": "FY 2024-2025",
+      "funder": "Ontario Ministry of Labour, Immigration, Training and Skills Development",
+      "amount_cad": 1773039,
+      "purpose": "Public Accounts Ministry transfer payments, recipient-specific project breakdown not supplied by this schedule",
+      "accounting_basis": "PROVINCIAL_PUBLIC_ACCOUNTS_TRANSFER_PAYMENT_NOT_A_NEW_AGREEMENT_FACE_VALUE",
+      "source_url": "https://www.ontario.ca/files/2025-09/tbs-public-detailed-schedule-of-payments-2024-2025-en-fr-2025-09-26.pdf"
+    },
+    {
+      "award_date": "2024-04-22",
+      "period": "2024-04-22 through 2024-08-31",
+      "funder": "Employment and Social Development Canada",
+      "agreement_id": "19942978",
+      "amount_cad": 79633,
+      "purpose": "Canada Summer Jobs, Brampton South",
+      "accounting_basis": "FEDERAL_CONTRIBUTION_AGREEMENT_FACE_VALUE_NOT_PAYMENT_TOTAL",
+      "source_url": "https://search.open.canada.ca/grants/record/esdc-edsc%2C141-2024-2025-Q2-18848%2Ccurrent"
+    },
+    {
+      "award_date": "2025-04-21",
+      "period": "2025-04-21 through 2025-08-30",
+      "funder": "Employment and Social Development Canada",
+      "agreement_id": "20530077",
+      "amount_cad": 50066,
+      "purpose": "Canada Summer Jobs, Brampton East",
+      "accounting_basis": "FEDERAL_CONTRIBUTION_AGREEMENT_FACE_VALUE_NOT_PAYMENT_TOTAL",
+      "source_url": "https://search.open.canada.ca/grants/record/esdc-edsc%2C014-2025-2026-Q2-16956%2Ccurrent"
+    }
+  ],
+  "third_party_audited_accounting_disclosure": {
+    "statement_entity": "Skills For Life Inc.",
+    "counterparty_as_reported": "Aspire 4 Higher",
+    "amount_cad": 12500,
+    "statement_as_of": "2025-08-31",
+    "accounting_class": "FUNDS_HELD_IN_TRUST_RECORDED_AS_LIABILITY",
+    "documentary_but_not_traced_to_public_grant": true,
+    "same_legal_entity_as_municipal_award_recipient_verified": false,
+    "grant_source_or_payment_path_verified": false,
+    "source_url": "https://theskills4life.ca/wp-content/uploads/2026/01/2024-25-Audited-Financial-Statement-HRP-1-compressed.pdf"
+  },
+  "governance": {
+    "public_organization_reported_executive": "Abena Addo, Founder and Executive Director",
+    "board_public_site": [
+      {
+        "name": "Roya Assadi",
+        "role": "Treasurer"
+      },
+      {
+        "name": "Nicole Morris",
+        "role": "Chair"
+      },
+      {
+        "name": "Dr. Nikolai Whyte",
+        "role": "Board Member"
+      },
+      {
+        "name": "Nicolette Stewart",
+        "role": "Board Member"
+      }
+    ],
+    "government_filing_of_current_board_verified": false,
+    "source_url": "https://aspireforhigher.ca/board-of-directors/",
+    "executive_source_url": "https://www.brampton.ca/en/business/bec/documents/brampton%20entrepreneur%20abena%20addo%20inspires%20youth%20to%20aspire%20for%20higher.pdf"
+  },
+  "public_activity_2025": {
+    "organization_self_reported": {
+      "youth_served": 7734,
+      "adults_served": 4930,
+      "jobs_created": 130,
+      "skills_lab_graduates": 28,
+      "skills_lab_job_placements": 23,
+      "skills_lab_work_placement_hours_minimum": 5000
+    },
+    "not_audited_by_casefile": true,
+    "city_grant_project_scope_validated": false,
+    "source_url": "https://aspireforhigher.ca/wp-content/uploads/2026/03/2025-A4H-Impact-Report.pdf",
+    "independent_public_city_listing": "https://www.brampton.ca/EN/residents/Recreation/Connections/pages/youth-sports.aspx"
+  },
+  "open_records_questions": [
+    "What registered legal entity and business number signed each 2024–2026 Brampton municipal agreement?",
+    "What project titles, budgets, dates, approval signatures and actual City payments correspond to each municipal award?",
+    "Which Ontario training programs, performance milestones and payments explain the FY2024–25 $1,773,039 MLITSD aggregate?",
+    "Were 2021–2024 BHPN deliverables and costs reconciled before the 2026–2029 entrepreneurship incubator contribution, and how is successor funding scoped?",
+    "Is the $12,500 Skills For Life trust beneficiary legally the same as the City/federal grant recipient, and what is the original funding source of the liability?",
+    "For each public grant, which expense items were claimed, from which source, and how was any co-funding apportioned?",
+    "Do 2025 self-reported results reconcile to independently verifiable training, employers and delivered costs?"
+  ],
+  "verified_fraud": 0,
+  "verified_improper_public_funds_use": 0,
+  "communication_permissions": "NO_OUTREACH_WITHOUT_EXPLICIT_USER_APPROVAL",
+  "interpretation": "Lead for award-to-entity-to-program-to-payment tracing. Name changes, multiple lawful funding streams, shared purposes, and trust liabilities are not inherently irregular."
+}
