@@ -1,0 +1,45 @@
+name: Municipal integrity source pilot (review only)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/observatory/integrity.py"
+      - "src/observatory/municipal_live.py"
+      - ".github/workflows/integrity-research.yml"
+permissions:
+  contents: read
+jobs:
+  evidence-intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install "pdfplumber==0.11.7"
+      - name: Offline tests
+        run: python -m unittest discover -s tests -v
+      - name: Collect only approved official municipal publications
+        run: python -m src.observatory.integrity --live --out local_results/integrity > integrity-run.log
+      - name: Print source health without unfounded accusations
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path("local_results/integrity/source_status.json").read_text())
+          for k in ("toronto_council_items","mississauga_noncompetitive_entries",
+                    "brampton_grant_recipient_entries","cross_year_grant_name_matches",
+                    "review_questions_generated","actual_fraud_findings"):
+              print(k,s[k])
+          for a in s["audit"]:
+              print("SOURCE",a["status"],a["source"],"rows",a.get("candidate_rows"),
+                    "items",a.get("candidate_items"),"error",a.get("error_type"))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: integrity-source-review
+          path: local_results/integrity/
+          retention-days: 7
+          if-no-files-found: warn
