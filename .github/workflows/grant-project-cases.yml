@@ -1,0 +1,51 @@
+name: 'Brampton grant projects and separate public funders'
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/observatory/grant_project_cases.py'
+      - 'tests/test_grant_project_cases.py'
+      - 'config/grant_specific_project_evidence.json'
+      - '.github/workflows/grant-project-cases.yml'
+permissions:
+  contents: read
+jobs:
+  project-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'pdfplumber==0.11.7'
+      - name: Validate evidence classification
+        run: python -m unittest discover -s tests -v
+      - name: Retrieve official three-year City approved award lists
+        run: python -m src.observatory.grant_research --live --out local_results/grants > /tmp/grants.log
+      - name: Create separate project-activity and funder evidence cases
+        run: python -m src.observatory.grant_project_cases --awards local_results/grants/grants_approved.json --out local_results/project_cases > /tmp/cases.log
+      - name: Summarize without misconduct claims
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out=Path("local_results/project_cases")
+          s=json.loads((out/"summary.json").read_text())
+          for key in ("city_award_cases","city_approved_award_records","self_described_activities",
+                      "separate_funder_published_awards","reported_partner_associations",
+                      "city_grant_agreement_scopes_verified","confirmed_duplicate_funding","confirmed_fraud"):
+              print(key,s[key])
+          for c in json.loads((out/"grant_project_cases.json").read_text()):
+              print("FOCUS",c["published_recipient_name"],"city_approved_cad",c["city_approved_total_cad"],
+                    "activities",len(c["activities"]),"outside_funders",len(c["other_funders"]))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: independent-grant-project-and-funder-casebooks
+          path: |
+            local_results/project_cases/
+            local_results/grants/status.json
+          retention-days: 7
+          if-no-files-found: warn

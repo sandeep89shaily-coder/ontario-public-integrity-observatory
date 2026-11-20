@@ -1,0 +1,98 @@
+{
+  "methodology": "Evidence is not the city's approved grant scope, a receipt, audited payment, attendance record or completed grant report unless independently established. Self-reports and planned events are distinguished.",
+  "focus": [
+    {
+      "recipient": "BMG-Brilliant Minds Association"
+    },
+    {
+      "recipient": "Skills For Life Inc"
+    }
+  ],
+  "activities": [
+    {
+      "recipient": "BMG-Brilliant Minds Association",
+      "year": "2024",
+      "project": "ABF-linked career mentorship and webinar series",
+      "description": "BMG publicly advertised eleven weekly career mentorship webinars starting September 18, 2024, in partnership with Advance Brampton Fund and A1 Global College.",
+      "evidence_type": "RECIPIENT_PROMOTION",
+      "activity_status": "PLANNED_OR_PROMOTED",
+      "source_url": "https://www.linkedin.com/posts/bmg-brilliant-minds-group_bmg-in-partnership-with-abf-advance-brampton-activity-7247221410425647104-GMuA",
+      "source_publisher": "BMG-Brilliant Minds Group",
+      "scope_verified_by_city": false
+    },
+    {
+      "recipient": "BMG-Brilliant Minds Association",
+      "year": "2025",
+      "project": "BMG ABF Mentorship Program 2025",
+      "description": "BMG's official website describes four scheduled cohorts with six weekly career workshops and a two-month mentorship period, intended for newcomers and international students.",
+      "evidence_type": "RECIPIENT_PROGRAM_PAGE",
+      "activity_status": "PLANNED_OR_PROMOTED",
+      "source_url": "https://www.bmggrp.ca/mentorship/",
+      "source_publisher": "BMG-Brilliant Minds Group",
+      "scope_verified_by_city": false
+    },
+    {
+      "recipient": "BMG-Brilliant Minds Association",
+      "year": "2025",
+      "project": "ABF mentorship graduation and job fair",
+      "description": "A person identified as a program coordinator reported that two BMG mentorship cohorts ran and a graduation/job fair took place on June 20, 2025, with support from ABF and A1 Global College.",
+      "evidence_type": "ORGANIZER_DELIVERY_REPORT",
+      "activity_status": "SELF_REPORTED_DELIVERED",
+      "source_url": "https://www.linkedin.com/posts/bhandarimani_graduationceremony-jobfair-activity-7343294104044191744-CQhF",
+      "source_publisher": "Program coordinator public post",
+      "scope_verified_by_city": false
+    },
+    {
+      "recipient": "BMG-Brilliant Minds Association",
+      "year": "2026",
+      "project": "BMG ABF Mentorship Program 2026",
+      "description": "BMG publicly advertised an opening communication workshop within its 2026 ABF mentorship program scheduled for April 22, 2026.",
+      "evidence_type": "RECIPIENT_PROMOTION",
+      "activity_status": "PLANNED_OR_PROMOTED",
+      "source_url": "https://www.linkedin.com/posts/bmg-brilliant-minds-group_bmg-abf-mentorshipprogram-activity-7447642446097829888-Cobl",
+      "source_publisher": "BMG-Brilliant Minds Group",
+      "scope_verified_by_city": false
+    }
+  ],
+  "external_funding": [
+    {
+      "recipient": "Skills For Life Inc",
+      "year": "2024",
+      "funder": "Region of Peel",
+      "program": "2024 Core Fund",
+      "reported_award_amount_cad": "69200",
+      "stated_public_purpose": "Promote life-skills development and bridge traditional learning with real-world applications.",
+      "source_url": "https://peelregion.ca/business/community-partnerships/community-investment-program/community-investment-program-funded-programs",
+      "source_publisher": "Region of Peel",
+      "amount_basis": "FUNDER_PUBLISHED_FUNDING_NOT_RECONCILED_PAYMENTS",
+      "same_project_as_city_grant_verified": false
+    },
+    {
+      "recipient": "Skills For Life Inc",
+      "year": "2025",
+      "funder": "Region of Peel",
+      "program": "2025 Core Fund",
+      "reported_award_amount_cad": "5587",
+      "stated_public_purpose": "Promote life-skills development and bridge traditional learning with real-world applications.",
+      "source_url": "https://peelregion.ca/business/community-partnerships/community-investment-program/community-investment-program-funded-programs",
+      "source_publisher": "Region of Peel",
+      "amount_basis": "FUNDER_PUBLISHED_FUNDING_NOT_RECONCILED_PAYMENTS",
+      "same_project_as_city_grant_verified": false
+    }
+  ],
+  "relationships": [
+    {
+      "recipient": "BMG-Brilliant Minds Association",
+      "related_entity": "A1 Global College of Health, Business and Technology",
+      "years": [
+        "2024",
+        "2025"
+      ],
+      "description": "BMG publicly names A1 Global College as a collaborator on advertised ABF-linked mentorship activities.",
+      "evidence_type": "RECIPIENT_REPORTED_COLLABORATION",
+      "source_url": "https://www.linkedin.com/posts/bmg-brilliant-minds-group_bmg-in-partnership-with-abf-advance-brampton-activity-7247221410425647104-GMuA",
+      "financial_relationship_verified": false,
+      "related_entity_is_an_abf_recipient_verified": false
+    }
+  ]
+}
