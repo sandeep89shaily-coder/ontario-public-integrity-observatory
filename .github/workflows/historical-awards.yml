@@ -1,0 +1,48 @@
+name: Municipal historical procurement research (review only)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/observatory/history.py"
+      - "src/observatory/municipal_live.py"
+      - "config/mississauga_historical_reports.csv"
+      - ".github/workflows/historical-awards.yml"
+permissions:
+  contents: read
+jobs:
+  collect-bounded-official-reports:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install "pdfplumber==0.11.7"
+      - run: python -m unittest discover -s tests -v
+      - name: Retrieve official monthly reports
+        run: python -m src.observatory.history --live --out local_results/history > history-run.log
+      - name: Source and contractor summary (not misconduct allegations)
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("local_results/history")
+          s=json.loads((p/"history_source_status.json").read_text())
+          c=json.loads((p/"candidate_histories.json").read_text())
+          print("reports_parsed",s["reports_parsed"],"/",s["reports_total"])
+          print("observations",s["source_observations"])
+          print("repeat_name_candidates",s["repeat_name_candidates"])
+          print("performance_verified",s["historical_performance_verified"])
+          for r in s["report_audit"]:
+              print("REPORT",r["report_id"],r["status"],r.get("candidate_rows",0),r.get("error_type",""))
+          for r in c["repeat_name_candidates"][:15]:
+              print("NAME_MATCH_REVIEW",r["candidate_name"],r["distinct_procurements"],r["reported_amount_sum"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bounded-official-historical-reports
+          path: local_results/history/
+          retention-days: 7
+          if-no-files-found: warn
