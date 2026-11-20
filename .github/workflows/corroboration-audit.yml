@@ -1,4 +1,4 @@
-name: Corroboration audit: rules, amounts and grant outcomes
+name: 'Corroboration audit - rules, amounts and grant outcomes'
 on:
   workflow_dispatch:
   push:
