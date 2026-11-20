@@ -9,5 +9,6 @@ __pycache__/
 private/
 working_cases/
 raw_evidence/
+local_results/
 secrets/
 *.log
