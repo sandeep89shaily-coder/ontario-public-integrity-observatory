@@ -1,0 +1,177 @@
+[
+  {
+    "id": "ON_SDF_ROUND4",
+    "type": "PROVINCIAL_PROJECT_SELECTION_LIST",
+    "name": "Extra Judicial Skilled Trades Employment Fast Track Program",
+    "amount_cad": null,
+    "period": "Round 4, 2023-24; source list published Sep 2025",
+    "source_url": "https://eopg.labour.gov.on.ca/wp-content/uploads/2025/09/sdf-round-4-organization-list-en-1.pdf",
+    "evidence": "Ontario identifies named recipient and official training project. Does not disclose individual evaluation score, original award amount or payments.",
+    "adverse_finding": false
+  },
+  {
+    "id": "ON_SDF_REPORTED_4_5M",
+    "type": "PRESS_REPORTED_FUNDING_AWARD",
+    "name": "SDF funding",
+    "amount_cad": "4500000",
+    "period": "2025 news reporting of an earlier SDF award",
+    "source_url": "https://www.thetrillium.ca/news/politics/most-early-skills-development-fund-recipients-that-missed-a-key-training-or-employment-target-got-grants-again-11428916",
+    "evidence": "The Trillium reported $4.5m awarded by minister's office and an interviewed participant reporting a subsequent carpentry job. Signed TPA and official agreement amount not accessed.",
+    "adverse_finding": false
+  },
+  {
+    "id": "ON_FY_24_25_TRANSFER",
+    "type": "PUBLIC_ACCOUNTS_FISCAL_TRANSFER_PAYMENT",
+    "name": "Aspire For Higher Elite Basketball",
+    "amount_cad": "1773039",
+    "period": "Ontario FY 2024-25",
+    "source_url": "https://www.ontario.ca/files/2025-09/tbs-public-detailed-schedule-of-payments-2024-2025-en-fr-2025-09-26.pdf",
+    "evidence": "Ministry of Labour Immigration Training and Skills Development name-level aggregate. Not an invoice ledger and not necessarily one agreement.",
+    "adverse_finding": false
+  },
+  {
+    "id": "UW_2025_26_GRANT",
+    "type": "OTHER_FUNDER_PUBLISHED_ALLOCATION",
+    "name": "Cooksville Community Action Grant — Aspire for Higher",
+    "amount_cad": "75000",
+    "period": "United Way GT 2025-26",
+    "source_url": "https://annualreport.unitedwaygt.org/disbursements.php",
+    "evidence": "United Way published $75k allocation to Aspire in Cooksville. Distinguish from provincial SDF payment and verify allowed cost allocations.",
+    "adverse_finding": false
+  },
+  {
+    "id": "UW_PROGRAM_NAME",
+    "type": "OTHER_FUNDER_PUBLISHED_PROJECT",
+    "name": "Extra-Judicial Employment Fast Track, Agency-led 2025",
+    "amount_cad": null,
+    "period": "2025",
+    "source_url": "https://www.unitedwaygt.org/our-work/investments/community-action-grants/",
+    "evidence": "United Way describes A4H-led trades placement program for justice-involved youth. Similar official title to Ontario SDF but no proof of shared invoices.",
+    "adverse_finding": false
+  },
+  {
+    "id": "SELF_2024_EJEFT",
+    "type": "RECIPIENT_SELF_REPORTED_OUTCOME",
+    "name": "EJEFT self-reported 52 graduates, 34 jobs created and 12 week program",
+    "amount_cad": null,
+    "period": "2024 impact report",
+    "source_url": "https://aspireforhigher.ca/wp-content/uploads/2025/11/2024-A4H-Impact-Report_final.pdf",
+    "evidence": "Recipient-published project claims, not approved TPA target or independently audited employment results.",
+    "adverse_finding": false
+  },
+  {
+    "id": "SELF_2025_SKILLSLAB",
+    "type": "RECIPIENT_SELF_REPORTED_OUTCOME",
+    "name": "Skills Lab self-reported 28 graduates, 23 job placements, 5000+ placement hours",
+    "amount_cad": null,
+    "period": "2025 impact report",
+    "source_url": "https://aspireforhigher.ca/wp-content/uploads/2026/03/2025-A4H-Impact-Report.pdf",
+    "evidence": "Recipient-published later training results and housing/grocery support; methodology/population may differ from 2024 EJEFT and not same award milestone. PDF screenshot retrieval was unavailable on this pass; indexed text is used.",
+    "adverse_finding": false
+  },
+  {
+    "id": "FEDDEV_2021_1000102_INITIAL",
+    "type": "FEDERAL_AGREEMENT_VERSION",
+    "canonical_agreement_id": "1000102",
+    "version_role": "initial",
+    "name": "BHPN Black Entrepreneurship Ecosystem Fund",
+    "amount_cad": "977070",
+    "period": "2021-2024",
+    "source_url": "https://search.open.canada.ca/grants/record/feddevontario%2C062-2021-2022-Q2-00108%2Ccurrent",
+    "evidence": "Original publication of agreement 1000102. Same agreement appears under a later amendment publication; cannot add twice.",
+    "adverse_finding": false
+  },
+  {
+    "id": "FEDDEV_2022_1000102_AMENDED",
+    "type": "FEDERAL_AGREEMENT_VERSION",
+    "canonical_agreement_id": "1000102",
+    "version_role": "amended",
+    "name": "BHPN and operating-name amendment",
+    "amount_cad": "977070",
+    "period": "2021-2024",
+    "source_url": "https://search.open.canada.ca/grants/record/feddevontario%2C062-2022-2023-Q2-00175%2Ccurrent",
+    "evidence": "The SAME agreement 1000102, names legal beneficiary and BN 817694599; 2022 amendment explicitly says operating-name change. Not an additional $977,070.",
+    "adverse_finding": false
+  },
+  {
+    "id": "FEDDEV_2026_1019626",
+    "type": "FEDERAL_AGREEMENT_FACE_VALUE",
+    "canonical_agreement_id": "1019626",
+    "name": "Healthcare Business Incubator",
+    "amount_cad": "2800000",
+    "period": "Apr 1 2026-Dec 31 2029",
+    "source_url": "https://search.open.canada.ca/grants/?search_text=%22Aspire+for+Higher+Elite+Basketball%22",
+    "evidence": "Four-year FedDev contribution agreement for new healthcare entrepreneurship and incubator cohort program. Not $2.8m already paid.",
+    "adverse_finding": false
+  },
+  {
+    "id": "FED_COPUBLISHED_PHAC_OUTCOME",
+    "type": "INDEPENDENT_GOVERNMENT_PUBLISHED_PROGRAM_RESULTS",
+    "name": "A4H mental wellness 2021-2024",
+    "amount_cad": null,
+    "period": "Apr 2021-Mar 2024",
+    "source_url": "https://publications.gc.ca/collections/collection_2026/aspc-phac/HP35-198-2026-eng.pdf",
+    "evidence": "Public Health Agency of Canada report describes 423 youth reached and 23 facilitators trained; evidence of program activity but not proof of each invoice or unrelated SDF results.",
+    "adverse_finding": false
+  },
+  {
+    "id": "SFL_TRUST_2025",
+    "type": "THIRD_PARTY_INDEPENDENTLY_AUDITED_LIABILITY",
+    "name": "Skills For Life Inc due to Aspire 4 Higher",
+    "amount_cad": "12500",
+    "period": "Aug 31 2025",
+    "source_url": "https://theskills4life.ca/wp-content/uploads/2026/01/2024-25-Audited-Financial-Statement-HRP-1-compressed.pdf",
+    "evidence": "Note 5 expressly identifies a $12,500 trust liability. Does not establish funds' origin, beneficiary's legal ID, related Brampton grant award or misappropriation.",
+    "adverse_finding": false
+  },
+  {
+    "id": "BRAMPTON_2024_ABF",
+    "type": "MUNICIPAL_PUBLISHED_APPROVED_AWARD",
+    "name": "Aspire for Higher Elite Basketball",
+    "amount_cad": "12500",
+    "period": "2024",
+    "source_url": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2024%20Approved%20ABF%20Applicants%20%28For%20Web%29%20V.2.pdf",
+    "evidence": "Municipal approval list only. Name and amount cannot prove relation to SFL trust.",
+    "adverse_finding": false
+  },
+  {
+    "id": "BRAMPTON_2025_ABF",
+    "type": "MUNICIPAL_PUBLISHED_APPROVED_AWARD",
+    "name": "Aspire for Higher Sports",
+    "amount_cad": "8750",
+    "period": "2025",
+    "source_url": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2025%20Advance%20Brampton%20Fund/2025%20Advance%20Brampton%20Fund%20Approved%20Applicants%20%28For%20Web%20V.%201%29.pdf",
+    "evidence": "Municipal approval list, same legal applicant and project scope not established.",
+    "adverse_finding": false
+  },
+  {
+    "id": "BRAMPTON_2026_ABF",
+    "type": "MUNICIPAL_PUBLISHED_APPROVED_AWARD",
+    "name": "Aspire for Higher",
+    "amount_cad": "20000",
+    "period": "2026",
+    "source_url": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2026%20Advance%20Brampton%20Fund/2026-Advance-Brampton-Fund-Approved-Recipients.pdf",
+    "evidence": "Municipal approval list, not confirmation of payment or completed grant.",
+    "adverse_finding": false
+  },
+  {
+    "id": "CANADA_SUMMER_JOBS_MULTI",
+    "type": "FEDERAL_CONTRIBUTION_AGREEMENTS_NOT_PAYMENTS",
+    "name": "Multiple separate CSJ grants in riding-specific records",
+    "amount_cad": null,
+    "period": "2017-2026",
+    "source_url": "https://search.open.canada.ca/grants/?search_text=%22Aspire+for+Higher+Elite+Basketball%22",
+    "evidence": "Canadian search reports 67 name-matched records across departments, including numerous riding-specific CSJ agreements. Search-result count not number of unique disbursements. Verify payroll and actual placement records without assuming cross-riding duplication.",
+    "adverse_finding": false
+  },
+  {
+    "id": "ON_AUDITOR_GENERAL_SDF_2025",
+    "type": "SYSTEMIC_INDEPENDENT_AUDIT_CONTEXT",
+    "name": "Ontario SDF program audit",
+    "amount_cad": null,
+    "period": "Oct 2025",
+    "source_url": "https://www.auditor.on.ca/en/content/specialreports/specialreports/en25/AR-PA_SDF-TS_en25.pdf",
+    "evidence": "Report found systemic weakness in selection rationale and monitoring/outcome standardization. Does not identify A4H as an offender or establish its evaluation ranking.",
+    "adverse_finding": false
+  }
+]
