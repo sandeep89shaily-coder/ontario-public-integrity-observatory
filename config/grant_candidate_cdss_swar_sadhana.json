@@ -1,0 +1,120 @@
+{
+  "case_id": "GRANTS_CASE_006_CDSS_SSMLC",
+  "date": "2026-11-20",
+  "status": "DOCUMENTED_AFFILIATED_DUAL_GRANTEE_AUDIT_LEAD_NO_ADVERSE_FINDING",
+  "organizations": [
+    {
+      "name": "Canadian Desi Settlement Services",
+      "federal_corporation": "13440109",
+      "federal_business_number": "770591808RC0001",
+      "federal_registered_office_shared_with_other": false,
+      "directors_public_registry": [
+        "Devang Desai",
+        "Jay Bhavsar",
+        "Akhil Pandya"
+      ],
+      "registry_url": "https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=13440109",
+      "awards": [
+        {
+          "year": 2024,
+          "amount_cad": 25000,
+          "stream": "Amplifying"
+        },
+        {
+          "year": 2025,
+          "amount_cad": 7500,
+          "stream": "Developing"
+        },
+        {
+          "year": 2026,
+          "amount_cad": 17500,
+          "stream": "Amplifying"
+        }
+      ]
+    },
+    {
+      "name": "Swar Sadhana Music Lovers Club",
+      "federal_business_number": "814509618RP0001",
+      "legal_incorporation_number_verified": false,
+      "board_as_self_published": [
+        "Jay Bhavsar - President",
+        "Dhruva Dwivedi - Secretary",
+        "Naimesh Nanavaty - Treasurer",
+        "Neha Bhavsar - Director"
+      ],
+      "board_url": "https://swarsadhanamusicloversclub.com/about-us",
+      "awards": [
+        {
+          "year": 2024,
+          "amount_cad": 25000,
+          "stream": "Amplifying"
+        },
+        {
+          "year": 2025,
+          "amount_cad": 20000,
+          "stream": "Amplifying"
+        },
+        {
+          "year": 2026,
+          "amount_cad": 12500,
+          "stream": "Developing"
+        }
+      ]
+    }
+  ],
+  "municipal_awards_source_urls": {
+    "2024": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2024%20Approved%20ABF%20Applicants%20%28For%20Web%29%20V.2.pdf",
+    "2025": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2025%20Advance%20Brampton%20Fund/2025%20Advance%20Brampton%20Fund%20Approved%20Applicants%20%28For%20Web%20V.%201%29.pdf",
+    "2026": "https://www.brampton.ca/EN/City-Hall/grants/Documents/2026%20Advance%20Brampton%20Fund/2026-Advance-Brampton-Fund-Approved-Recipients.pdf"
+  },
+  "shared_public_record_relationships": [
+    {
+      "type": "SAME_NAMED_DIRECTOR",
+      "name": "Jay Bhavsar",
+      "cdss_source": "https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=13440109",
+      "ssmlc_source": "https://swarsadhanamusicloversclub.com/about-us",
+      "identity_official_cross_entity_certificate_obtained": false
+    },
+    {
+      "type": "SAME_PUBLISHED_CORRESPONDENCE_LOCATION",
+      "cdss_source": "https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=13440109",
+      "ssmlc_source": "https://swarsadhanamusicloversclub.com/about-us",
+      "actual_operational_site_verified": false
+    },
+    {
+      "type": "SHARED_PUBLIC_CONTACT_PHONE_NUMBERS",
+      "cdss_source": "https://canadiandesisettlement.com/contact-us",
+      "ssmlc_source": "https://swarsadhanamusicloversclub.com/about-us"
+    },
+    {
+      "type": "CROSS_PROMOTED_MEMBERSHIP_AND_EVENTS",
+      "source": "https://canadiandesisettlement.com/membership",
+      "financial_transfer_verified": false
+    }
+  ],
+  "other_public_commitments": [
+    {
+      "entity": "Swar Sadhana Music Lovers Club",
+      "funder": "ESDC Canada Summer Jobs 2024",
+      "agreement_no": "19536507",
+      "amount_cad": 10706,
+      "amount_basis": "AGREEMENT_FACE_VALUE_NOT_DISBURSED",
+      "source_url": "https://search.open.canada.ca/grants/record/esdc-edsc%2C141-2024-2025-Q2-11368%2Ccurrent"
+    },
+    {
+      "entity": "Canadian Desi Settlement Services",
+      "funder": "ESDC Canada Summer Jobs 2025",
+      "agreement_no": "20277398",
+      "amount_cad": 27813,
+      "amount_basis": "AGREEMENT_FACE_VALUE_NOT_DISBURSED",
+      "source_url": "https://search.open.canada.ca/grants/record/esdc-edsc%2C014-2025-2026-Q2-11717%2Ccurrent"
+    }
+  ],
+  "combined_approved_municipal_awards_cad": 107500,
+  "specific_city_project_titles_obtained": 0,
+  "original_invoices_obtained": 0,
+  "actual_city_payments_confirmed": 0,
+  "confirmed_duplicate_expense_claims": 0,
+  "confirmed_fraud": 0,
+  "external_communications_permitted": false
+}
